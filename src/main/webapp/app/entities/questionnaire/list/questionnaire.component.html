@@ -1,0 +1,242 @@
+<div>
+  <h2 id="page-heading" data-cy="QuestionnaireHeading">
+    <span jhiTranslate="vegaJaApp.questionnaire.home.title">Questionnaires</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="vegaJaApp.questionnaire.home.refreshListLabel">Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-questionnaire"
+        [routerLink]="['/questionnaire/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="vegaJaApp.questionnaire.home.createLabel"> Genera un nuovo Questionnaire </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="questionnaires?.length === 0">
+    <span jhiTranslate="vegaJaApp.questionnaire.home.notFound">No Questionnaires found</span>
+  </div>
+
+  <div class="table-responsive table-entities" id="entities" *ngIf="questionnaires && questionnaires.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+          <th scope="col" jhiSortBy="id">
+            <div class="d-flex">
+              <span jhiTranslate="vegaJaApp.questionnaire.id">Id</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="name">
+            <div class="d-flex">
+              <span jhiTranslate="vegaJaApp.questionnaire.name">Name</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="version">
+            <div class="d-flex">
+              <span jhiTranslate="vegaJaApp.questionnaire.version">Version</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="title">
+            <div class="d-flex">
+              <span jhiTranslate="vegaJaApp.questionnaire.title">Title</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="subTitle">
+            <div class="d-flex">
+              <span jhiTranslate="vegaJaApp.questionnaire.subTitle">Sub Title</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="notes">
+            <div class="d-flex">
+              <span jhiTranslate="vegaJaApp.questionnaire.notes">Notes</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="image">
+            <div class="d-flex">
+              <span jhiTranslate="vegaJaApp.questionnaire.image">Image</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="imageAlt">
+            <div class="d-flex">
+              <span jhiTranslate="vegaJaApp.questionnaire.imageAlt">Image Alt</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="instructions">
+            <div class="d-flex">
+              <span jhiTranslate="vegaJaApp.questionnaire.instructions">Instructions</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="compilationTime">
+            <div class="d-flex">
+              <span jhiTranslate="vegaJaApp.questionnaire.compilationTime">Compilation Time</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="forcedTerminationTime">
+            <div class="d-flex">
+              <span jhiTranslate="vegaJaApp.questionnaire.forcedTerminationTime">Forced Termination Time</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="usedSeconds">
+            <div class="d-flex">
+              <span jhiTranslate="vegaJaApp.questionnaire.usedSeconds">Used Seconds</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="status">
+            <div class="d-flex">
+              <span jhiTranslate="vegaJaApp.questionnaire.status">Status</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="xml">
+            <div class="d-flex">
+              <span jhiTranslate="vegaJaApp.questionnaire.xml">Xml</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="json">
+            <div class="d-flex">
+              <span jhiTranslate="vegaJaApp.questionnaire.json">Json</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="saveText">
+            <div class="d-flex">
+              <span jhiTranslate="vegaJaApp.questionnaire.saveText">Save Text</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="searchText">
+            <div class="d-flex">
+              <span jhiTranslate="vegaJaApp.questionnaire.searchText">Search Text</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="subjectToEvaluation">
+            <div class="d-flex">
+              <span jhiTranslate="vegaJaApp.questionnaire.subjectToEvaluation">Subject To Evaluation</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="questionnaireType">
+            <div class="d-flex">
+              <span jhiTranslate="vegaJaApp.questionnaire.questionnaireType">Questionnaire Type</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="attachments">
+            <div class="d-flex">
+              <span jhiTranslate="vegaJaApp.questionnaire.attachments">Attachments</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="questionnaireGroup.id">
+            <div class="d-flex">
+              <span jhiTranslate="vegaJaApp.questionnaire.questionnaireGroup">Questionnaire Group</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="questionnaireProfile.id">
+            <div class="d-flex">
+              <span jhiTranslate="vegaJaApp.questionnaire.questionnaireProfile">Questionnaire Profile</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let questionnaire of questionnaires; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/questionnaire', questionnaire.id, 'view']">{{ questionnaire.id }}</a>
+          </td>
+          <td>{{ questionnaire.name }}</td>
+          <td>{{ questionnaire.version }}</td>
+          <td>{{ questionnaire.title }}</td>
+          <td>{{ questionnaire.subTitle }}</td>
+          <td>{{ questionnaire.notes }}</td>
+          <td>{{ questionnaire.image }}</td>
+          <td>{{ questionnaire.imageAlt }}</td>
+          <td>{{ questionnaire.instructions }}</td>
+          <td>{{ questionnaire.compilationTime }}</td>
+          <td>{{ questionnaire.forcedTerminationTime }}</td>
+          <td>{{ questionnaire.usedSeconds }}</td>
+          <td>{{ questionnaire.status }}</td>
+          <td>{{ questionnaire.xml }}</td>
+          <td>{{ questionnaire.json }}</td>
+          <td>{{ questionnaire.saveText }}</td>
+          <td>{{ questionnaire.searchText }}</td>
+          <td>{{ questionnaire.subjectToEvaluation }}</td>
+          <td jhiTranslate="{{ 'vegaJaApp.QuestionnaireType.' + questionnaire.questionnaireType }}">
+            {{ questionnaire.questionnaireType }}
+          </td>
+          <td>{{ questionnaire.attachments }}</td>
+          <td>
+            <div *ngIf="questionnaire.questionnaireGroup">
+              <a [routerLink]="['/questionnaire-group', questionnaire.questionnaireGroup.id, 'view']">{{
+                questionnaire.questionnaireGroup.id
+              }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="questionnaire.questionnaireProfile">
+              <a [routerLink]="['/questionnaire-profile', questionnaire.questionnaireProfile.id, 'view']">{{
+                questionnaire.questionnaireProfile.id
+              }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/questionnaire', questionnaire.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">Visualizza</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/questionnaire', questionnaire.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Modifica</span>
+              </button>
+
+              <button type="submit" (click)="delete(questionnaire)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Elimina</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

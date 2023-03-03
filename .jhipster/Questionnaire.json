@@ -1,0 +1,111 @@
+{
+  "applications": "*",
+  "changelogDate": "20230303181504",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "questionnaire",
+  "fields": [
+    {
+      "fieldName": "id",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "version",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "title",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "subTitle",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "notes",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "image",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "imageAlt",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "instructions",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "compilationTime",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "forcedTerminationTime",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "usedSeconds",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "xml",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "json",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "saveText",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "searchText",
+      "fieldType": "String",
+      "javadoc": "Campo utilizzato nella ricerca"
+    },
+    {
+      "fieldName": "subjectToEvaluation",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "questionnaireType",
+      "fieldType": "QuestionnaireType",
+      "fieldValues": "ANCORE,AUTOVALUTAZIONI,PERCORSOSTUDIO"
+    },
+    {
+      "fieldName": "attachments",
+      "fieldType": "Integer"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "Questionnaire",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "questionnaireGroup",
+      "otherEntityRelationshipName": "questionnaire",
+      "relationshipName": "questionnaireGroup",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "questionnaireProfile",
+      "otherEntityRelationshipName": "questionnaire",
+      "relationshipName": "questionnaireProfile",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceClass"
+}

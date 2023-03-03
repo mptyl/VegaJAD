@@ -1,0 +1,7 @@
+export enum QuestionnaireType {
+  ANCORE = 'ANCORE',
+
+  AUTOVALUTAZIONI = 'AUTOVALUTAZIONI',
+
+  PERCORSOSTUDIO = 'PERCORSOSTUDIO',
+}

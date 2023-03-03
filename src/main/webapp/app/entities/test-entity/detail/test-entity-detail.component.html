@@ -1,0 +1,111 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="testEntity">
+      <h2 data-cy="testEntityDetailsHeading"><span jhiTranslate="vegaJaApp.testEntity.detail.title">Test Entity</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ testEntity.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="vegaJaApp.testEntity.stringField">String Field</span></dt>
+        <dd>
+          <span>{{ testEntity.stringField }}</span>
+        </dd>
+        <dt><span jhiTranslate="vegaJaApp.testEntity.integerField">Integer Field</span></dt>
+        <dd>
+          <span>{{ testEntity.integerField }}</span>
+        </dd>
+        <dt><span jhiTranslate="vegaJaApp.testEntity.longField">Long Field</span></dt>
+        <dd>
+          <span>{{ testEntity.longField }}</span>
+        </dd>
+        <dt><span jhiTranslate="vegaJaApp.testEntity.bigDecimalField">Big Decimal Field</span></dt>
+        <dd>
+          <span>{{ testEntity.bigDecimalField }}</span>
+        </dd>
+        <dt><span jhiTranslate="vegaJaApp.testEntity.floatField">Float Field</span></dt>
+        <dd>
+          <span>{{ testEntity.floatField }}</span>
+        </dd>
+        <dt><span jhiTranslate="vegaJaApp.testEntity.doubleField">Double Field</span></dt>
+        <dd>
+          <span>{{ testEntity.doubleField }}</span>
+        </dd>
+        <dt><span jhiTranslate="vegaJaApp.testEntity.enumField">Enum Field</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'vegaJaApp.ReplyType.' + testEntity.enumField }}">{{ testEntity.enumField }}</span>
+        </dd>
+        <dt><span jhiTranslate="vegaJaApp.testEntity.booleanField">Boolean Field</span></dt>
+        <dd>
+          <span>{{ testEntity.booleanField }}</span>
+        </dd>
+        <dt><span jhiTranslate="vegaJaApp.testEntity.localDateField">Local Date Field</span></dt>
+        <dd>
+          <span>{{ testEntity.localDateField | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="vegaJaApp.testEntity.zonedDateField">Zoned Date Field</span></dt>
+        <dd>
+          <span>{{ testEntity.zonedDateField | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="vegaJaApp.testEntity.instantField">Instant Field</span></dt>
+        <dd>
+          <span>{{ testEntity.instantField | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="vegaJaApp.testEntity.durationField">Duration Field</span></dt>
+        <dd>
+          <span>{{ testEntity.durationField | duration }} ({{ testEntity.durationField }})</span>
+        </dd>
+        <dt><span jhiTranslate="vegaJaApp.testEntity.uuidField">Uuid Field</span></dt>
+        <dd>
+          <span>{{ testEntity.uuidField }}</span>
+        </dd>
+        <dt><span jhiTranslate="vegaJaApp.testEntity.blobField">Blob Field</span></dt>
+        <dd>
+          <div *ngIf="testEntity.blobField">
+            <a (click)="openFile(testEntity.blobField, testEntity.blobFieldContentType)" jhiTranslate="entity.action.open">Open</a>
+            {{ testEntity.blobFieldContentType }}, {{ byteSize(testEntity.blobField) }}
+          </div>
+        </dd>
+        <dt><span jhiTranslate="vegaJaApp.testEntity.anyBlobField">Any Blob Field</span></dt>
+        <dd>
+          <div *ngIf="testEntity.anyBlobField">
+            <a (click)="openFile(testEntity.anyBlobField, testEntity.anyBlobFieldContentType)" jhiTranslate="entity.action.open">Open</a>
+            {{ testEntity.anyBlobFieldContentType }}, {{ byteSize(testEntity.anyBlobField) }}
+          </div>
+        </dd>
+        <dt><span jhiTranslate="vegaJaApp.testEntity.imageBlobField">Image Blob Field</span></dt>
+        <dd>
+          <div *ngIf="testEntity.imageBlobField">
+            <a (click)="openFile(testEntity.imageBlobField, testEntity.imageBlobFieldContentType)">
+              <img
+                [src]="'data:' + testEntity.imageBlobFieldContentType + ';base64,' + testEntity.imageBlobField"
+                style="max-width: 100%"
+                alt="testEntity image"
+              />
+            </a>
+            {{ testEntity.imageBlobFieldContentType }}, {{ byteSize(testEntity.imageBlobField) }}
+          </div>
+        </dd>
+        <dt><span jhiTranslate="vegaJaApp.testEntity.textBlobField">Text Blob Field</span></dt>
+        <dd>
+          <span>{{ testEntity.textBlobField }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Indietro</span>
+      </button>
+
+      <button type="button" [routerLink]="['/test-entity', testEntity.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Modifica</span>
+      </button>
+    </div>
+  </div>
+</div>

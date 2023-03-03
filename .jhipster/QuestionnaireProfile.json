@@ -1,0 +1,31 @@
+{
+  "applications": "*",
+  "changelogDate": "20230303181506",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "questionnaire_profile",
+  "fields": [
+    {
+      "fieldName": "id",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "QuestionnaireProfile",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "questionnaire",
+      "otherEntityRelationshipName": "questionnaireProfile",
+      "relationshipName": "questionnaire",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "serviceClass"
+}

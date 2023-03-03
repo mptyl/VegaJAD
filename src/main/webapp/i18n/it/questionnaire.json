@@ -1,0 +1,47 @@
+{
+  "vegaJaApp": {
+    "questionnaire": {
+      "home": {
+        "title": "Questionnaires",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Genera un nuovo Questionnaire",
+        "createOrEditLabel": "Genera o modifica un Questionnaire",
+        "notFound": "No Questionnaires found"
+      },
+      "created": "&Egrave; stato generato un nuovo Questionnaire con identificatore {{ param }}",
+      "updated": "&Egrave; stato aggiornato Questionnaire identificato da {{ param }}",
+      "deleted": "&Egrave; stato eliminato Questionnaire con identificatore {{ param }}",
+      "delete": {
+        "question": "Sei sicuro di volere eliminare Questionnaire {{ id }}?"
+      },
+      "detail": {
+        "title": "Questionnaire"
+      },
+      "id": "Id",
+      "name": "Name",
+      "version": "Version",
+      "title": "Title",
+      "subTitle": "Sub Title",
+      "notes": "Notes",
+      "image": "Image",
+      "imageAlt": "Image Alt",
+      "instructions": "Instructions",
+      "compilationTime": "Compilation Time",
+      "forcedTerminationTime": "Forced Termination Time",
+      "usedSeconds": "Used Seconds",
+      "status": "Status",
+      "xml": "Xml",
+      "json": "Json",
+      "saveText": "Save Text",
+      "searchText": "Search Text",
+      "subjectToEvaluation": "Subject To Evaluation",
+      "questionnaireType": "Questionnaire Type",
+      "attachments": "Attachments",
+      "questionnaireGroup": "Questionnaire Group",
+      "questionnaireProfile": "Questionnaire Profile",
+      "help": {
+        "searchText": "Campo utilizzato nella ricerca"
+      }
+    }
+  }
+}

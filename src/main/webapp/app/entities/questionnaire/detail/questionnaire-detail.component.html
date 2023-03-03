@@ -1,0 +1,126 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="questionnaire">
+      <h2 data-cy="questionnaireDetailsHeading"><span jhiTranslate="vegaJaApp.questionnaire.detail.title">Questionnaire</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="vegaJaApp.questionnaire.id">Id</span></dt>
+        <dd>
+          <span>{{ questionnaire.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="vegaJaApp.questionnaire.name">Name</span></dt>
+        <dd>
+          <span>{{ questionnaire.name }}</span>
+        </dd>
+        <dt><span jhiTranslate="vegaJaApp.questionnaire.version">Version</span></dt>
+        <dd>
+          <span>{{ questionnaire.version }}</span>
+        </dd>
+        <dt><span jhiTranslate="vegaJaApp.questionnaire.title">Title</span></dt>
+        <dd>
+          <span>{{ questionnaire.title }}</span>
+        </dd>
+        <dt><span jhiTranslate="vegaJaApp.questionnaire.subTitle">Sub Title</span></dt>
+        <dd>
+          <span>{{ questionnaire.subTitle }}</span>
+        </dd>
+        <dt><span jhiTranslate="vegaJaApp.questionnaire.notes">Notes</span></dt>
+        <dd>
+          <span>{{ questionnaire.notes }}</span>
+        </dd>
+        <dt><span jhiTranslate="vegaJaApp.questionnaire.image">Image</span></dt>
+        <dd>
+          <span>{{ questionnaire.image }}</span>
+        </dd>
+        <dt><span jhiTranslate="vegaJaApp.questionnaire.imageAlt">Image Alt</span></dt>
+        <dd>
+          <span>{{ questionnaire.imageAlt }}</span>
+        </dd>
+        <dt><span jhiTranslate="vegaJaApp.questionnaire.instructions">Instructions</span></dt>
+        <dd>
+          <span>{{ questionnaire.instructions }}</span>
+        </dd>
+        <dt><span jhiTranslate="vegaJaApp.questionnaire.compilationTime">Compilation Time</span></dt>
+        <dd>
+          <span>{{ questionnaire.compilationTime }}</span>
+        </dd>
+        <dt><span jhiTranslate="vegaJaApp.questionnaire.forcedTerminationTime">Forced Termination Time</span></dt>
+        <dd>
+          <span>{{ questionnaire.forcedTerminationTime }}</span>
+        </dd>
+        <dt><span jhiTranslate="vegaJaApp.questionnaire.usedSeconds">Used Seconds</span></dt>
+        <dd>
+          <span>{{ questionnaire.usedSeconds }}</span>
+        </dd>
+        <dt><span jhiTranslate="vegaJaApp.questionnaire.status">Status</span></dt>
+        <dd>
+          <span>{{ questionnaire.status }}</span>
+        </dd>
+        <dt><span jhiTranslate="vegaJaApp.questionnaire.xml">Xml</span></dt>
+        <dd>
+          <span>{{ questionnaire.xml }}</span>
+        </dd>
+        <dt><span jhiTranslate="vegaJaApp.questionnaire.json">Json</span></dt>
+        <dd>
+          <span>{{ questionnaire.json }}</span>
+        </dd>
+        <dt><span jhiTranslate="vegaJaApp.questionnaire.saveText">Save Text</span></dt>
+        <dd>
+          <span>{{ questionnaire.saveText }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="vegaJaApp.questionnaire.searchText" [ngbTooltip]="'vegaJaApp.questionnaire.help.searchText' | translate"
+            >Search Text</span
+          >
+        </dt>
+        <dd>
+          <span>{{ questionnaire.searchText }}</span>
+        </dd>
+        <dt><span jhiTranslate="vegaJaApp.questionnaire.subjectToEvaluation">Subject To Evaluation</span></dt>
+        <dd>
+          <span>{{ questionnaire.subjectToEvaluation }}</span>
+        </dd>
+        <dt><span jhiTranslate="vegaJaApp.questionnaire.questionnaireType">Questionnaire Type</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'vegaJaApp.QuestionnaireType.' + questionnaire.questionnaireType }}">{{
+            questionnaire.questionnaireType
+          }}</span>
+        </dd>
+        <dt><span jhiTranslate="vegaJaApp.questionnaire.attachments">Attachments</span></dt>
+        <dd>
+          <span>{{ questionnaire.attachments }}</span>
+        </dd>
+        <dt><span jhiTranslate="vegaJaApp.questionnaire.questionnaireGroup">Questionnaire Group</span></dt>
+        <dd>
+          <div *ngIf="questionnaire.questionnaireGroup">
+            <a [routerLink]="['/questionnaire-group', questionnaire.questionnaireGroup.id, 'view']">{{
+              questionnaire.questionnaireGroup.id
+            }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="vegaJaApp.questionnaire.questionnaireProfile">Questionnaire Profile</span></dt>
+        <dd>
+          <div *ngIf="questionnaire.questionnaireProfile">
+            <a [routerLink]="['/questionnaire-profile', questionnaire.questionnaireProfile.id, 'view']">{{
+              questionnaire.questionnaireProfile.id
+            }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Indietro</span>
+      </button>
+
+      <button type="button" [routerLink]="['/questionnaire', questionnaire.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Modifica</span>
+      </button>
+    </div>
+  </div>
+</div>

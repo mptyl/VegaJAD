@@ -1,0 +1,26 @@
+{
+  "vegaJaApp": {
+    "questionnaireGroup": {
+      "home": {
+        "title": "Questionnaire Groups",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Questionnaire Group",
+        "createOrEditLabel": "Create or edit a Questionnaire Group",
+        "notFound": "No Questionnaire Groups found"
+      },
+      "created": "A new Questionnaire Group is created with identifier {{ param }}",
+      "updated": "A Questionnaire Group is updated with identifier {{ param }}",
+      "deleted": "A Questionnaire Group is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Questionnaire Group {{ id }}?"
+      },
+      "detail": {
+        "title": "Questionnaire Group"
+      },
+      "id": "Id",
+      "name": "Name",
+      "description": "Description",
+      "questionnaire": "Questionnaire"
+    }
+  }
+}

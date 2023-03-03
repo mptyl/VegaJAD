@@ -1,0 +1,227 @@
+<div>
+  <h2 id="page-heading" data-cy="TestEntityHeading">
+    <span jhiTranslate="vegaJaApp.testEntity.home.title">TestEntities</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="vegaJaApp.testEntity.home.refreshListLabel">Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-test-entity"
+        [routerLink]="['/test-entity/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="vegaJaApp.testEntity.home.createLabel"> Genera un nuovo Test Entity </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="testEntities?.length === 0">
+    <span jhiTranslate="vegaJaApp.testEntity.home.notFound">No Test Entities found</span>
+  </div>
+
+  <div class="table-responsive table-entities" id="entities" *ngIf="testEntities && testEntities.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+          <th scope="col" jhiSortBy="id">
+            <div class="d-flex">
+              <span jhiTranslate="global.field.id">ID</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="stringField">
+            <div class="d-flex">
+              <span jhiTranslate="vegaJaApp.testEntity.stringField">String Field</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="integerField">
+            <div class="d-flex">
+              <span jhiTranslate="vegaJaApp.testEntity.integerField">Integer Field</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="longField">
+            <div class="d-flex">
+              <span jhiTranslate="vegaJaApp.testEntity.longField">Long Field</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="bigDecimalField">
+            <div class="d-flex">
+              <span jhiTranslate="vegaJaApp.testEntity.bigDecimalField">Big Decimal Field</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="floatField">
+            <div class="d-flex">
+              <span jhiTranslate="vegaJaApp.testEntity.floatField">Float Field</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="doubleField">
+            <div class="d-flex">
+              <span jhiTranslate="vegaJaApp.testEntity.doubleField">Double Field</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="enumField">
+            <div class="d-flex">
+              <span jhiTranslate="vegaJaApp.testEntity.enumField">Enum Field</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="booleanField">
+            <div class="d-flex">
+              <span jhiTranslate="vegaJaApp.testEntity.booleanField">Boolean Field</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="localDateField">
+            <div class="d-flex">
+              <span jhiTranslate="vegaJaApp.testEntity.localDateField">Local Date Field</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="zonedDateField">
+            <div class="d-flex">
+              <span jhiTranslate="vegaJaApp.testEntity.zonedDateField">Zoned Date Field</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="instantField">
+            <div class="d-flex">
+              <span jhiTranslate="vegaJaApp.testEntity.instantField">Instant Field</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="durationField">
+            <div class="d-flex">
+              <span jhiTranslate="vegaJaApp.testEntity.durationField">Duration Field</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="uuidField">
+            <div class="d-flex">
+              <span jhiTranslate="vegaJaApp.testEntity.uuidField">Uuid Field</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="blobField">
+            <div class="d-flex">
+              <span jhiTranslate="vegaJaApp.testEntity.blobField">Blob Field</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="anyBlobField">
+            <div class="d-flex">
+              <span jhiTranslate="vegaJaApp.testEntity.anyBlobField">Any Blob Field</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="imageBlobField">
+            <div class="d-flex">
+              <span jhiTranslate="vegaJaApp.testEntity.imageBlobField">Image Blob Field</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="textBlobField">
+            <div class="d-flex">
+              <span jhiTranslate="vegaJaApp.testEntity.textBlobField">Text Blob Field</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let testEntity of testEntities; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/test-entity', testEntity.id, 'view']">{{ testEntity.id }}</a>
+          </td>
+          <td>{{ testEntity.stringField }}</td>
+          <td>{{ testEntity.integerField }}</td>
+          <td>{{ testEntity.longField }}</td>
+          <td>{{ testEntity.bigDecimalField }}</td>
+          <td>{{ testEntity.floatField }}</td>
+          <td>{{ testEntity.doubleField }}</td>
+          <td jhiTranslate="{{ 'vegaJaApp.ReplyType.' + testEntity.enumField }}">{{ testEntity.enumField }}</td>
+          <td>{{ testEntity.booleanField }}</td>
+          <td>{{ testEntity.localDateField | formatMediumDate }}</td>
+          <td>{{ testEntity.zonedDateField | formatMediumDatetime }}</td>
+          <td>{{ testEntity.instantField | formatMediumDatetime }}</td>
+          <td title="{{ testEntity.durationField }}">{{ testEntity.durationField | duration }}</td>
+          <td>{{ testEntity.uuidField }}</td>
+          <td>
+            <a
+              *ngIf="testEntity.blobField"
+              (click)="openFile(testEntity.blobField, testEntity.blobFieldContentType)"
+              jhiTranslate="entity.action.open"
+              >Open</a
+            >
+            <span *ngIf="testEntity.blobField">{{ testEntity.blobFieldContentType }}, {{ byteSize(testEntity.blobField) }}</span>
+          </td>
+          <td>
+            <a
+              *ngIf="testEntity.anyBlobField"
+              (click)="openFile(testEntity.anyBlobField, testEntity.anyBlobFieldContentType)"
+              jhiTranslate="entity.action.open"
+              >Open</a
+            >
+            <span *ngIf="testEntity.anyBlobField">{{ testEntity.anyBlobFieldContentType }}, {{ byteSize(testEntity.anyBlobField) }}</span>
+          </td>
+          <td>
+            <a *ngIf="testEntity.imageBlobField" (click)="openFile(testEntity.imageBlobField, testEntity.imageBlobFieldContentType)">
+              <img
+                [src]="'data:' + testEntity.imageBlobFieldContentType + ';base64,' + testEntity.imageBlobField"
+                style="max-height: 30px"
+                alt="testEntity image"
+              />
+            </a>
+            <span *ngIf="testEntity.imageBlobField"
+              >{{ testEntity.imageBlobFieldContentType }}, {{ byteSize(testEntity.imageBlobField) }}</span
+            >
+          </td>
+          <td>{{ testEntity.textBlobField }}</td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/test-entity', testEntity.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">Visualizza</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/test-entity', testEntity.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Modifica</span>
+              </button>
+
+              <button type="submit" (click)="delete(testEntity)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Elimina</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,62 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-latest.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <changeSet author="marcopancotti (generated)" id="1677868668481-4">
+        <addColumn tableName="test_entity">
+            <column name="any_blob_field" type="bytea"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="marcopancotti (generated)" id="1677868668481-5">
+        <addColumn tableName="test_entity">
+            <column name="any_blob_field_content_type" type="varchar(255)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="marcopancotti (generated)" id="1677868668481-6">
+        <addColumn tableName="test_entity">
+            <column name="blob_field" type="bytea"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="marcopancotti (generated)" id="1677868668481-7">
+        <addColumn tableName="test_entity">
+            <column name="blob_field_content_type" type="varchar(255)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="marcopancotti (generated)" id="1677868668481-8">
+        <addColumn tableName="test_entity">
+            <column name="enum_field" type="varchar(255)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="marcopancotti (generated)" id="1677868668481-9">
+        <addColumn tableName="test_entity">
+            <column name="image_blob_field" type="bytea"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="marcopancotti (generated)" id="1677868668481-10">
+        <addColumn tableName="test_entity">
+            <column name="image_blob_field_content_type" type="varchar(255)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="marcopancotti (generated)" id="1677868668481-11">
+        <addColumn tableName="test_entity">
+            <column name="instant_field" type="timestamp"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="marcopancotti (generated)" id="1677868668481-12">
+        <addColumn tableName="test_entity">
+            <column name="text_blob_field" type="text"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="marcopancotti (generated)" id="1677868668481-13">
+        <addColumn tableName="test_entity">
+            <column name="uuid_field" type="uuid"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="marcopancotti (generated)" id="1677868668481-1">
+        <setColumnRemarks columnDataType="varchar(255)" columnName="search_text" tableName="questionnaire"/>
+    </changeSet>
+    <changeSet author="marcopancotti (generated)" id="1677868668481-2">
+        <dropUniqueConstraint constraintName="UC_JHI_USERLOGIN_COL" tableName="jhi_user"/>
+    </changeSet>
+    <changeSet author="marcopancotti (generated)" id="1677868668481-3">
+        <addUniqueConstraint columnNames="login" constraintName="UC_JHI_USERLOGIN_COL" tableName="jhi_user"/>
+    </changeSet>
+</databaseChangeLog>

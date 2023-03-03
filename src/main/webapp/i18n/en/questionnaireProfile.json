@@ -1,0 +1,25 @@
+{
+  "vegaJaApp": {
+    "questionnaireProfile": {
+      "home": {
+        "title": "Questionnaire Profiles",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Questionnaire Profile",
+        "createOrEditLabel": "Create or edit a Questionnaire Profile",
+        "notFound": "No Questionnaire Profiles found"
+      },
+      "created": "A new Questionnaire Profile is created with identifier {{ param }}",
+      "updated": "A Questionnaire Profile is updated with identifier {{ param }}",
+      "deleted": "A Questionnaire Profile is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Questionnaire Profile {{ id }}?"
+      },
+      "detail": {
+        "title": "Questionnaire Profile"
+      },
+      "id": "Id",
+      "description": "Description",
+      "questionnaire": "Questionnaire"
+    }
+  }
+}

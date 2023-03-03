@@ -1,0 +1,332 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-test-entity-heading" data-cy="TestEntityCreateUpdateHeading" jhiTranslate="vegaJaApp.testEntity.home.createOrEditLabel">
+        Genera o modifica un Test Entity
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" *ngIf="editForm.controls.id.value !== null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="vegaJaApp.testEntity.stringField" for="field_stringField">String Field</label>
+          <input
+            type="text"
+            class="form-control"
+            name="stringField"
+            id="field_stringField"
+            data-cy="stringField"
+            formControlName="stringField"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="vegaJaApp.testEntity.integerField" for="field_integerField">Integer Field</label>
+          <input
+            type="number"
+            class="form-control"
+            name="integerField"
+            id="field_integerField"
+            data-cy="integerField"
+            formControlName="integerField"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="vegaJaApp.testEntity.longField" for="field_longField">Long Field</label>
+          <input type="number" class="form-control" name="longField" id="field_longField" data-cy="longField" formControlName="longField" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="vegaJaApp.testEntity.bigDecimalField" for="field_bigDecimalField"
+            >Big Decimal Field</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="bigDecimalField"
+            id="field_bigDecimalField"
+            data-cy="bigDecimalField"
+            formControlName="bigDecimalField"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="vegaJaApp.testEntity.floatField" for="field_floatField">Float Field</label>
+          <input
+            type="number"
+            class="form-control"
+            name="floatField"
+            id="field_floatField"
+            data-cy="floatField"
+            formControlName="floatField"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="vegaJaApp.testEntity.doubleField" for="field_doubleField">Double Field</label>
+          <input
+            type="number"
+            class="form-control"
+            name="doubleField"
+            id="field_doubleField"
+            data-cy="doubleField"
+            formControlName="doubleField"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="vegaJaApp.testEntity.enumField" for="field_enumField">Enum Field</label>
+          <select class="form-control" name="enumField" formControlName="enumField" id="field_enumField" data-cy="enumField">
+            <option [ngValue]="null">{{ 'vegaJaApp.ReplyType.null' | translate }}</option>
+            <option *ngFor="let replyType of replyTypeValues" [value]="replyType">
+              {{ 'vegaJaApp.ReplyType.' + replyType | translate }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="vegaJaApp.testEntity.booleanField" for="field_booleanField">Boolean Field</label>
+          <input
+            type="checkbox"
+            class="form-check"
+            name="booleanField"
+            id="field_booleanField"
+            data-cy="booleanField"
+            formControlName="booleanField"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="vegaJaApp.testEntity.localDateField" for="field_localDateField">Local Date Field</label>
+          <div class="input-group">
+            <input
+              id="field_localDateField"
+              data-cy="localDateField"
+              type="text"
+              class="form-control"
+              name="localDateField"
+              ngbDatepicker
+              #localDateFieldDp="ngbDatepicker"
+              formControlName="localDateField"
+            />
+            <button type="button" class="btn btn-secondary" (click)="localDateFieldDp.toggle()">
+              <fa-icon icon="calendar-alt"></fa-icon>
+            </button>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="vegaJaApp.testEntity.zonedDateField" for="field_zonedDateField">Zoned Date Field</label>
+          <div class="d-flex">
+            <input
+              id="field_zonedDateField"
+              data-cy="zonedDateField"
+              type="datetime-local"
+              class="form-control"
+              name="zonedDateField"
+              formControlName="zonedDateField"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="vegaJaApp.testEntity.instantField" for="field_instantField">Instant Field</label>
+          <div class="d-flex">
+            <input
+              id="field_instantField"
+              data-cy="instantField"
+              type="datetime-local"
+              class="form-control"
+              name="instantField"
+              formControlName="instantField"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="vegaJaApp.testEntity.durationField" for="field_durationField">Duration Field</label>
+          <input
+            type="text"
+            class="form-control"
+            name="durationField"
+            id="field_durationField"
+            data-cy="durationField"
+            formControlName="durationField"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="vegaJaApp.testEntity.uuidField" for="field_uuidField">Uuid Field</label>
+          <input type="text" class="form-control" name="uuidField" id="field_uuidField" data-cy="uuidField" formControlName="uuidField" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="vegaJaApp.testEntity.blobField" for="field_blobField">Blob Field</label>
+          <div>
+            <div *ngIf="editForm.get('blobField')!.value" class="form-text text-danger clearfix">
+              <a
+                class="pull-start"
+                (click)="openFile(editForm.get('blobField')!.value!, editForm.get('blobFieldContentType')!.value!)"
+                jhiTranslate="entity.action.open"
+                >Open</a
+              ><br />
+              <span class="pull-start"
+                >{{ editForm.get('blobFieldContentType')!.value }}, {{ byteSize(editForm.get('blobField')!.value!) }}</span
+              >
+              <button
+                type="button"
+                (click)="editForm.patchValue({ blobField: undefined, blobFieldContentType: undefined })"
+                class="btn btn-secondary btn-xs pull-end"
+              >
+                <fa-icon icon="times"></fa-icon>
+              </button>
+            </div>
+            <input
+              type="file"
+              id="file_blobField"
+              data-cy="blobField"
+              (change)="setFileData($event, 'blobField', false)"
+              jhiTranslate="entity.action.addblob"
+            />
+          </div>
+          <input type="hidden" class="form-control" name="blobField" id="field_blobField" data-cy="blobField" formControlName="blobField" />
+          <input
+            type="hidden"
+            class="form-control"
+            name="blobFieldContentType"
+            id="field_blobFieldContentType"
+            formControlName="blobFieldContentType"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="vegaJaApp.testEntity.anyBlobField" for="field_anyBlobField">Any Blob Field</label>
+          <div>
+            <div *ngIf="editForm.get('anyBlobField')!.value" class="form-text text-danger clearfix">
+              <a
+                class="pull-start"
+                (click)="openFile(editForm.get('anyBlobField')!.value!, editForm.get('anyBlobFieldContentType')!.value!)"
+                jhiTranslate="entity.action.open"
+                >Open</a
+              ><br />
+              <span class="pull-start"
+                >{{ editForm.get('anyBlobFieldContentType')!.value }}, {{ byteSize(editForm.get('anyBlobField')!.value!) }}</span
+              >
+              <button
+                type="button"
+                (click)="editForm.patchValue({ anyBlobField: undefined, anyBlobFieldContentType: undefined })"
+                class="btn btn-secondary btn-xs pull-end"
+              >
+                <fa-icon icon="times"></fa-icon>
+              </button>
+            </div>
+            <input
+              type="file"
+              id="file_anyBlobField"
+              data-cy="anyBlobField"
+              (change)="setFileData($event, 'anyBlobField', false)"
+              jhiTranslate="entity.action.addblob"
+            />
+          </div>
+          <input
+            type="hidden"
+            class="form-control"
+            name="anyBlobField"
+            id="field_anyBlobField"
+            data-cy="anyBlobField"
+            formControlName="anyBlobField"
+          />
+          <input
+            type="hidden"
+            class="form-control"
+            name="anyBlobFieldContentType"
+            id="field_anyBlobFieldContentType"
+            formControlName="anyBlobFieldContentType"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="vegaJaApp.testEntity.imageBlobField" for="field_imageBlobField">Image Blob Field</label>
+          <div>
+            <img
+              [src]="'data:' + editForm.get('imageBlobFieldContentType')!.value + ';base64,' + editForm.get('imageBlobField')!.value"
+              style="max-height: 100px"
+              *ngIf="editForm.get('imageBlobField')!.value"
+              alt="testEntity image"
+            />
+            <div *ngIf="editForm.get('imageBlobField')!.value" class="form-text text-danger clearfix">
+              <span class="pull-start"
+                >{{ editForm.get('imageBlobFieldContentType')!.value }}, {{ byteSize(editForm.get('imageBlobField')!.value!) }}</span
+              >
+              <button
+                type="button"
+                (click)="clearInputImage('imageBlobField', 'imageBlobFieldContentType', 'file_imageBlobField')"
+                class="btn btn-secondary btn-xs pull-end"
+              >
+                <fa-icon icon="times"></fa-icon>
+              </button>
+            </div>
+            <input
+              type="file"
+              id="file_imageBlobField"
+              data-cy="imageBlobField"
+              (change)="setFileData($event, 'imageBlobField', true)"
+              accept="image/*"
+              jhiTranslate="entity.action.addimage"
+            />
+          </div>
+          <input
+            type="hidden"
+            class="form-control"
+            name="imageBlobField"
+            id="field_imageBlobField"
+            data-cy="imageBlobField"
+            formControlName="imageBlobField"
+          />
+          <input
+            type="hidden"
+            class="form-control"
+            name="imageBlobFieldContentType"
+            id="field_imageBlobFieldContentType"
+            formControlName="imageBlobFieldContentType"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="vegaJaApp.testEntity.textBlobField" for="field_textBlobField">Text Blob Field</label>
+          <textarea
+            class="form-control"
+            name="textBlobField"
+            id="field_textBlobField"
+            data-cy="textBlobField"
+            formControlName="textBlobField"
+          ></textarea>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Annulla</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Salva</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

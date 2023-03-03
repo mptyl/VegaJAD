@@ -1,0 +1,90 @@
+{
+  "applications": "*",
+  "changelogDate": "20230303181505",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "test_entity",
+  "fields": [
+    {
+      "fieldName": "stringField",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "integerField",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "longField",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "bigDecimalField",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "floatField",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "doubleField",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "enumField",
+      "fieldType": "ReplyType",
+      "fieldTypeJavadoc": "se Range integerMinValue e integerMaxValue fanno da range e step fa da step",
+      "fieldValues": "TEXT,CHECKBOX,SELECT,DATE,INTEGER,NUMBER,RANGE,FILE,EMAIL,PHONE,TIME,URL"
+    },
+    {
+      "fieldName": "booleanField",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "localDateField",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "zonedDateField",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "instantField",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "durationField",
+      "fieldType": "Duration"
+    },
+    {
+      "fieldName": "uuidField",
+      "fieldType": "UUID"
+    },
+    {
+      "fieldName": "blobField",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "any"
+    },
+    {
+      "fieldName": "anyBlobField",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "any"
+    },
+    {
+      "fieldName": "imageBlobField",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "image"
+    },
+    {
+      "fieldName": "textBlobField",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "text"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "TestEntity",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [],
+  "service": "serviceClass"
+}

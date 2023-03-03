@@ -1,0 +1,10 @@
+{
+  "vegaJaApp": {
+    "QuestionnaireType": {
+      "null": "",
+      "ANCORE": "ANCORE",
+      "AUTOVALUTAZIONI": "AUTOVALUTAZIONI",
+      "PERCORSOSTUDIO": "PERCORSOSTUDIO"
+    }
+  }
+}

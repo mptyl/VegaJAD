@@ -1,0 +1,34 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="questionnaireProfile">
+      <h2 data-cy="questionnaireProfileDetailsHeading">
+        <span jhiTranslate="vegaJaApp.questionnaireProfile.detail.title">Questionnaire Profile</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="vegaJaApp.questionnaireProfile.id">Id</span></dt>
+        <dd>
+          <span>{{ questionnaireProfile.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="vegaJaApp.questionnaireProfile.description">Description</span></dt>
+        <dd>
+          <span>{{ questionnaireProfile.description }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Indietro</span>
+      </button>
+
+      <button type="button" [routerLink]="['/questionnaire-profile', questionnaireProfile.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Modifica</span>
+      </button>
+    </div>
+  </div>
+</div>

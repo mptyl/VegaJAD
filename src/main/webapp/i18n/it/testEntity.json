@@ -1,0 +1,40 @@
+{
+  "vegaJaApp": {
+    "testEntity": {
+      "home": {
+        "title": "TestEntities",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Genera un nuovo Test Entity",
+        "createOrEditLabel": "Genera o modifica un Test Entity",
+        "notFound": "No Test Entities found"
+      },
+      "created": "&Egrave; stato generato un nuovo Test Entity con identificatore {{ param }}",
+      "updated": "&Egrave; stato aggiornato Test Entity identificato da {{ param }}",
+      "deleted": "&Egrave; stato eliminato Test Entity con identificatore {{ param }}",
+      "delete": {
+        "question": "Sei sicuro di volere eliminare Test Entity {{ id }}?"
+      },
+      "detail": {
+        "title": "Test Entity"
+      },
+      "id": "ID",
+      "stringField": "String Field",
+      "integerField": "Integer Field",
+      "longField": "Long Field",
+      "bigDecimalField": "Big Decimal Field",
+      "floatField": "Float Field",
+      "doubleField": "Double Field",
+      "enumField": "Enum Field",
+      "booleanField": "Boolean Field",
+      "localDateField": "Local Date Field",
+      "zonedDateField": "Zoned Date Field",
+      "instantField": "Instant Field",
+      "durationField": "Duration Field",
+      "uuidField": "Uuid Field",
+      "blobField": "Blob Field",
+      "anyBlobField": "Any Blob Field",
+      "imageBlobField": "Image Blob Field",
+      "textBlobField": "Text Blob Field"
+    }
+  }
+}

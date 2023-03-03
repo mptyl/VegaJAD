@@ -48,6 +48,12 @@ public class CacheConfiguration {
             createCache(cm, it.tylconsulting.vega.domain.User.class.getName());
             createCache(cm, it.tylconsulting.vega.domain.Authority.class.getName());
             createCache(cm, it.tylconsulting.vega.domain.User.class.getName() + ".authorities");
+            createCache(cm, it.tylconsulting.vega.domain.Questionnaire.class.getName());
+            createCache(cm, it.tylconsulting.vega.domain.TestEntity.class.getName());
+            createCache(cm, it.tylconsulting.vega.domain.QuestionnaireProfile.class.getName());
+            createCache(cm, it.tylconsulting.vega.domain.QuestionnaireProfile.class.getName() + ".questionnaires");
+            createCache(cm, it.tylconsulting.vega.domain.QuestionnaireGroup.class.getName());
+            createCache(cm, it.tylconsulting.vega.domain.QuestionnaireGroup.class.getName() + ".questionnaires");
             // jhipster-needle-ehcache-add-entry
         };
     }
